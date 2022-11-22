@@ -1,0 +1,40 @@
+<form name="loginForm">
+	<div class="modal-header">
+		<h3 class="modal-title">Login</h3>
+	</div>
+	<div class="modal-body">
+		<div class="alert alert-danger" ng-show="loginCtrl.hostAlreadyJoined">
+			<strong>Host already joined!</strong> If you are the actual host, ask your participants to exit the meeting.
+		</div>
+		<div class="alert alert-danger" ng-show="loginCtrl.invalidAccessCode">
+				<strong>Invalid access code!</strong> Please enter a valid access code, ask your Scrum master for details.
+		</div>
+		<div class="alert alert-danger" ng-show="loginCtrl.invalidUserName">
+			<strong>Invalid user name!</strong> User name already exists, please enter a unique and different user name.
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control" name="userName" required ng-model="loginCtrl.userName" placeholder="Enter your name" focus="true" />
+		</div>
+		<div class="form-group">
+			<input type="number" class="form-control" name="accessCode" required ng-model="loginCtrl.accessCode" placeholder="Enter a access code for your room" />	
+		</div>
+		<div class="form-group">
+			<div class="form-check form-check-inline">
+				<label class="form-check-label">
+					<input class="form-check-input" type="checkbox" 
+							ng-model="loginCtrl.isHost" ng-disabled="loginCtrl.isChicken"> I'm scrum master
+				</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<label class="form-check-label">
+					<input class="form-check-input" type="checkbox" 
+							ng-disabled="loginCtrl.isHost" ng-model="loginCtrl.isChicken"> I'm just listening (Chicken)
+				</label>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid" ng-click="loginCtrl.join()">Join</button>
+		<button class="btn btn-cancel" ng-click="loginCtrl.cancel()">Cancel</button>
+	</div>
+</form>

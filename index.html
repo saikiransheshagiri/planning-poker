@@ -1,0 +1,68 @@
+<!doctype html>
+<html ng-app="app">
+
+<head>
+	<title>Sprint Planning</title>
+
+	<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+	<link href="assets/css/toastr.min.css" rel="stylesheet">
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/angular-ui-bootstrap/ui-bootstrap-csp.css">
+	<link rel="stylesheet" href="assets/css/app.css">
+
+	<script src="assets/js/angular.min.js"></script>
+	
+</head>
+
+<body>
+	<nav class="navbar navbar-dark bg-primary" style="border-radius: 0px;">
+		<span class="navbar-brand">Sprint planning</span>
+	</nav>
+	<div ng-controller="AppController as appCtrl">
+		<lobby ng-if="!(appCtrl.joinedPlanning && appCtrl.room)" 
+			   joined-planning="appCtrl.joinedPlanning"
+			   user="appCtrl.user"
+			   room="appCtrl.room"></lobby>
+		<planning-room ng-if="(appCtrl.joinedPlanning && appCtrl.room)"
+					   joined-planning="appCtrl.joinedPlanning"
+					   user="appCtrl.user" 
+					   room="appCtrl.room"
+					   topic-inprogress="appCtrl.topicInprogress"
+					   participants="appCtrl.participants"></planning-room>
+	</div>
+	<!-- vendor scripts -->
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="assets/js/jquery-1.11.1.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/toastr.min.js"></script>
+	<script src="assets/js/lodash.min.js"></script>
+	<script src="assets/angular-ui-bootstrap/ui-bootstrap.js"></script>
+	<script src="assets/angular-ui-bootstrap/ui-bootstrap-tpls.js"></script>
+
+	<!-- Application scripts -->
+	<script src="app/app.module.js"></script>
+	<script src="app/app.controller.js"></script>
+	<script src="app/planning-room/planning-room.component.js"></script>
+	<script src="app/login/login.controller.js"></script>
+	<script src="app/user-info/user-info.component.js"></script>
+	<script src="app/participant-list/participant-list.component.js"></script>
+	<script src="app/planning-table/planning-table.component.js"></script>
+	<script src="app/participant-panel/participant-panel.component.js"></script>
+	<script src="app/host-panel/host-panel.component.js"></script>
+	<script src="app/lobby/lobby.component.js"></script>
+
+	<script src="app/create-room/create-room.controller.js"></script>
+
+	<!-- Application constants -->
+	<script src="app/constants/socketio.constants.js"></script>
+	<script src="app/constants/app.constants.js"></script>
+
+	<!-- Directives -->
+	<script src="app/directives/focusme.directive.js"></script>
+
+	<!-- Services -->
+	<script src="app/services/planning.service.js"></script>
+	<script src="app/services/rooms.service.js"></script>
+</body>
+
+</html>

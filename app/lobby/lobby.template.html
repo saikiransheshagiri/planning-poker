@@ -1,0 +1,22 @@
+<div class="app-intro">
+		<h3 style="display: inline-block">Welcome to Sprint Planning Poker application.<br><br>
+			<small>If you are the host, create a room for your planning. If you are a participant, go ahead and join the room with the access code.<br>
+				**If you are a participant and don't know your room details, please contact your host.
+			</small>
+		</h3>
+		<br><br>
+		<button class="btn btn-primary btn-createroom" ng-click="lobbyCtrl.create()">Create a room</button>
+</div>
+<div class="contrainer rooms">
+	<h3>Rooms</h3>
+	<div class="list-group existing-rooms"  ng-if="lobbyCtrl.rooms.length">
+		<a href class="list-group-item" ng-repeat="room in lobbyCtrl.rooms" ng-click="lobbyCtrl.join(room)">
+			<h3>{{room.name}}</h3>
+			<p><strong>Host: </strong><span style="text-transform: capitalize">{{room.host ? room.host.name : 'Not yet joined'}}</span><br><strong>Date: </strong> {{room.createdOn | date:'medium'}}</p>
+			<p class="join-room">Join this room</p>
+		</a>
+	</div>
+	<p  ng-if="lobbyCtrl.rooms.length === 0">
+		<i>No rooms available for planning</i>
+	</p>
+</div>

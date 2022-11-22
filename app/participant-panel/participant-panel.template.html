@@ -1,0 +1,53 @@
+<div class="panel-heading">
+	Point cards
+</div>
+<div class="panel-body" ng-if="!$ctrl.user.isChicken">
+	<p><i>Use the below cards to point a topic/story. When a topic/story is selected by Host then below cards turns blue and are selectable. Click on the cards to point.</i></p>
+	<hr>	
+	<div class="row">
+		<div class="participant-points col-sm-2">
+			<div class="participant-card" ng-class="{'enable-pointing': $ctrl.pointingEnabled}" ng-click="$ctrl.sendPoints('1')">
+				<p>1</p>
+			</div>
+		</div>
+		<div class="participant-points col-sm-2">
+			<div class="participant-card" ng-class="{'enable-pointing': $ctrl.pointingEnabled}" ng-click="$ctrl.sendPoints('2')">
+				<p>2</p>
+			</div>
+		</div>
+		<div class="participant-points col-sm-2">
+			<div class="participant-card" ng-class="{'enable-pointing': $ctrl.pointingEnabled}" ng-click="$ctrl.sendPoints('3')">
+				<p>3</p>
+			</div>
+		</div>
+		<div class="participant-points col-sm-2">
+			<div class="participant-card" ng-class="{'enable-pointing': $ctrl.pointingEnabled}" ng-click="$ctrl.sendPoints('5')">
+				<p>5</p>
+			</div>
+		</div>
+		<div class="participant-points col-sm-2">
+			<div class="participant-card" ng-class="{'enable-pointing': $ctrl.pointingEnabled}" ng-click="$ctrl.sendPoints('8')">
+				<p>8</p>
+			</div>
+		</div>
+		<div class="participant-points col-sm-2">
+			<div class="participant-card" ng-class="{'enable-pointing': $ctrl.pointingEnabled}" ng-click="$ctrl.sendPoints('13')">
+				<p>13</p>
+			</div>
+		</div>
+		<div class="participant-points col-sm-2">
+			<div class="participant-card" ng-class="{'enable-pointing': $ctrl.pointingEnabled}" ng-click="$ctrl.sendPoints('20')">
+				<p>20</p>
+			</div>
+		</div>
+		<div class="participant-points col-sm-2">
+			<div class="participant-card" ng-class="{'enable-pointing': $ctrl.pointingEnabled}" ng-click="$ctrl.sendPoints('?')">
+				<p>?</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="panel-body" ng-if="$ctrl.user.isChicken">
+	<p><i>You logged in listen only mode. Relax and watch the planning :)</i></p>
+</div>

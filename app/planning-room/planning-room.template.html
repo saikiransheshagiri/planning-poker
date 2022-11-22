@@ -1,0 +1,34 @@
+<div class="container" >
+	<h3>Welcome to <span style="text-transform: capitalize">{{planningRoomCtrl.room.name}}</span> &#123; <small>Access Code: {{planningRoomCtrl.room.accessCode}}</small> &#125;
+		<button class="btn btn-danger pull-right" ng-click="planningRoomCtrl.leave()">Exit planning</button>
+	</h3>
+</div>
+<hr>
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-8">
+			<div class="panel panel-default">
+				<planning-table topic-inprogress="planningRoomCtrl.topicInprogress" 
+								is-host="planningRoomCtrl.user.isHost" 
+								show-points="planningRoomCtrl.showPoints"></planning-table>
+			</div>
+			<div class="panel panel-default">
+				<participant-panel ng-if="!planningRoomCtrl.user.isHost" 
+								   topic-inprogress="planningRoomCtrl.topicInprogress" 
+								   user="planningRoomCtrl.user">
+				</participant-panel>
+				<host-panel ng-if="planningRoomCtrl.user.isHost" topic-inprogress="planningRoomCtrl.topicInprogress" >
+				</host-panel>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="panel panel-default">
+				<user-info user="planningRoomCtrl.user"></user-info>
+			</div>
+			<div class="panel panel-default">
+				<participant-list participants="planningRoomCtrl.participants"></participant-list>
+			</div>
+		</div>
+	</div>
+</div>

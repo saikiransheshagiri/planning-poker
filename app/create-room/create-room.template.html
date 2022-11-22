@@ -1,0 +1,28 @@
+<form name="createForm" novalidate>
+	<div class="modal-header">
+		<h3 class="modal-title">Create a room</h3>
+	</div>
+	<div class="modal-body">
+		<div class="alert alert-danger" ng-show="createRoomCtrl.roomAlreadyExists">
+			<strong>Room already exists!</strong> Please enter a unique name for your room.
+		</div>
+
+		<div class="form-group">
+			<input type="text" class="form-control" 
+					name="roomName" ng-model="createRoomCtrl.roomName" 
+					required maxlength="18" placeholder="Enter room name" focus="true" />
+		</div>
+		<div class="form-group">
+			<input type="number" class="form-control" 
+					name="accessCode" ng-model="createRoomCtrl.accessCode" 
+					required placeholder="Enter a access code for your room" />
+			<small>TIP: Use a 4 digit PIN</small>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="submit" class="btn btn-primary" 
+				ng-click="createRoomCtrl.create()"
+				ng-disabled="createForm.$invalid">Create</button>
+		<button class="btn btn-cancel" ng-click="createRoomCtrl.cancel()">Cancel</button>
+	</div>
+</form>

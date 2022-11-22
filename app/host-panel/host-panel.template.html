@@ -1,0 +1,17 @@
+<div class="panel-heading">
+	Scrum master actions</div>
+<div class="panel-body">
+	<div class="form-group">
+		<input type="text" class="form-control" ng-model="$ctrl.topic" placeholder="Enter Topic OR User Story Number for discussion" />
+	</div>
+	<div>
+		<button class="btn btn-primary" ng-click="$ctrl.setTopic()" ng-disabled="$ctrl.topicInprogress">Set Topic</button>
+		<button class="btn btn-danger pull-right" ng-click="$ctrl.resetTopic()" ng-disabled="!$ctrl.topicInprogress">Reset</button>
+	</div>
+	<br>
+	<hr>
+	<p>** Click below button only when all participants finished pointing</p>
+	<p class="text-center">
+		<button class="btn btn-success btn-lg" ng-click="$ctrl.reveal()">Reveal Points</button>
+	</p>
+</div>
